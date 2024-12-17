@@ -33,7 +33,7 @@ int main(){
 			cout << setw(13) << left << borrow_money;
 			cout << setw(13) << left << interest;
 			cout << setw(13) << left << total;
-			cout << setw(13) << left << pay;
+			cout << setw(13) << left << pay_debt;
 			cout << setw(13) << left << newbalance;
 			cout << "\n";
 			borrow_money = newbalance;
