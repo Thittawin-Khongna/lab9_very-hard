@@ -3,14 +3,13 @@
 using namespace std;
 
 int main(){	
-	int initial , amount , month = initial/amount , i ;
-	double rate ;
+	double borrow_money = 0 , percent = 0 , pay_debt = 0 ;
 	cout << "Enter initial loan: ";
-	cin >> initial ;
-	cout << "Enter interest rate per year (%): ";
-	cin >> rate ;
-	cout << "Enter amount you can pay per year: ";
-	cin >> amount ;
+	cin>>borrow_money;
+	cout << "Enter interest rate per year (%): " ;
+	cin>>percent;
+	cout << "Enter amount you can pay per year: " ;
+	cin>>pay_debt;
 
 	//use 'setw' to set width of table and 'left' to set left-alignment
 	//you can change input argument of 'setw()' to see the effect
@@ -22,20 +21,39 @@ int main(){
 	cout << setw(13) << left << "Payment";
 	cout << setw(13) << left << "NewBalance";
 	cout << "\n";
-	
-	//use 'fixed' and 'setprecision' to fix the number of decimal digits for displaying
-	//you can change input argument of 'setprecision()' to see the effect
-	cout << fixed << setprecision(3); 
-	cout << setw(13) << left << 1; 
-	cout << setw(13) << left << 1000.0;
-	cout << setw(13) << left << 50.0;
-	cout << setw(13) << left << 1050.0;
-	cout << setw(13) << left << 100.0;
-	cout << setw(13) << left << 950.0;
-	cout << "\n";	
-	
-	while(i<=month){
+	int i = 0;
+	do {
+		
+		double interest = (percent/100)*borrow_money;
+		double total = borrow_money+interest;
+		if (total >= pay_debt){
+			double newbalance = total - pay_debt;
+			cout << fixed << setprecision(2); 
+			cout << setw(13) << left << i+1; 
+			cout << setw(13) << left << borrow_money;
+			cout << setw(13) << left << interest;
+			cout << setw(13) << left << total;
+			cout << setw(13) << left << pay;
+			cout << setw(13) << left << newbalance;
+			cout << "\n";
+			borrow_money = newbalance;
+		}else if(total <= pay_debt){
+			pay_debt = total;
+			double newbalance = total - pay_debt ;
+			cout << fixed << setprecision(2); 
+			cout << setw(13) << left << i+1; 
+			cout << setw(13) << left << borrow_money;
+			cout << setw(13) << left << interest;
+			cout << setw(13) << left << total;
+			cout << setw(13) << left << pay_debt ;
+			cout << setw(13) << left << newbalance;
+			cout << "\n";
+			borrow_money = newbalance;
+		}
 
+		i++;	
 	}
+	while (borrow_money != 0);
+	
 	return 0;
 }
