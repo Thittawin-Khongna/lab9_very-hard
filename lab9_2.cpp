@@ -6,8 +6,8 @@ void printO (int x,int y){
 		cout<<"Invalid input";
 	}
 	else{
-		for (int i = 0;i<x;i++){
-			for(int j = 0;j<y;j++){
+		for (int i = 0;i < x ; i++){
+			for(int j = 0; j < y ; j++){
 				cout<<"O";
 			}
 		cout<<"\n";
